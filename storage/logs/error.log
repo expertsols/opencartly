@@ -1,0 +1,10 @@
+2025-10-26 22:23:11 - An exception has been thrown during the rendering of a template ("Division by zero"). in D:\xampp\htdocs\www\opencartly\catalog\view\template\common\menu.twig on line 13
+2025-10-26 22:23:42 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
+2025-10-26 22:23:44 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
+2025-10-26 22:23:45 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
+2025-10-26 22:23:48 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
+2025-10-26 22:23:49 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
+2025-10-26 22:24:13 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
+2025-10-26 22:24:14 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
+2025-10-26 22:25:03 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 49
+2025-10-26 22:25:17 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 49
