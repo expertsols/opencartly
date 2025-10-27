@@ -39,7 +39,13 @@ class Header extends \Opencart\System\Engine\Controller {
 		$data['keywords'] = $this->document->getKeywords();
 
 		// Hard coding css, so they can be replaced via the event's system.
-		$data['stylesheet'] = 'static/stylesheet/stylesheet.css';
+		$stylesheet = 'static/stylesheet/stylesheet.css';
+
+		if (is_file(DIR_OPENCART . $stylesheet)) {
+			$data['stylesheet'] = $stylesheet . '?v=' . filemtime(DIR_OPENCART . $stylesheet);
+		} else {
+			$data['stylesheet'] = $stylesheet;
+		}
 
 		// Hard coding scripts, so they can be replaced via the event's system.
 		$data['jquery'] = 'static/javascript/jquery/jquery-3.7.1.min.js';

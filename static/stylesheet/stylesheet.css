@@ -10710,26 +10710,89 @@ button:focus {
 }
 /* top */
 #top {
-  background-color: var(--bs-tertiary-bg);
-  border-bottom: 1px solid var(--bs-border-color);
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 5px;
+  background-color: #229ac8;
+  background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+  background-repeat: repeat-x;
+  border: 1px solid #1f90bb;
+  border-color: #1f90bb #1f90bb #145e7a;
+  border-radius: 4px;
+  margin: 0 0 20px 0;
+  padding: 6px 0;
+  min-height: 37px;
+  color: #fff;
+}
+#top .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#top .container .nav {
+  float: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
 }
 #top ul.list-inline {
   margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
-#top .list-inline-item > a, #top .list-inline-item .dropdown > a {
+#top ul.list-inline > li {
+  display: flex;
+  align-items: center;
+}
+#top .list-inline-item > a,
+#top .list-inline-item .dropdown > a {
+  display: flex;
+  align-items: center;
   font-size: 1.1em;
-  color: var(--bs-gray-600);
-  line-height: 40px;
-  vertical-align: middle;
-  padding: 10px 0px 5px 0px;
+  color: #fff;
+  line-height: 1.4;
+  padding: 4px 0;
+}
+#top .list-inline-item > a:hover,
+#top .list-inline-item .dropdown > a:hover {
+  color: #fff;
+}
+#top .btn-link {
+  color: #fff;
+  text-decoration: none;
+}
+#top .btn-link:hover {
+  color: #fff;
+}
+#top i,
+#top span {
+  color: #fff;
+}
+.top-right .list-inline-item > a i,
+.top-right .list-inline-item > a svg {
+  margin-right: 6px;
+}
+.top-right .list-inline-item > a span {
+  margin-left: 4px;
+}
+.top-right .dropdown-toggle .fa-caret-down {
+  margin-left: 6px;
+}
+.top-left,
+.top-right {
+  margin: 0;
 }
 /* logo */
+#header .row {
+  --bs-gutter-y: 0;
+  align-items: center;
+}
 #logo {
   text-align: center;
-  margin: 7px 0 7px 0;
+  margin: 0;
 }
 #logo img {
   max-width: 200px;
@@ -10737,6 +10800,12 @@ button:focus {
 @media (min-width: 768px) {
   #logo {
     text-align: left;
+  }
+}
+@media (min-width: 768px) {
+  #search,
+  #header-cart {
+    margin-bottom: 0;
   }
 }
 /* search */

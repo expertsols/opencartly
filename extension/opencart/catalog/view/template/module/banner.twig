@@ -1,3 +1,7 @@
+{% set show_brand_heading = items >= 5 %}
+{% if show_brand_heading %}
+  <h3 class="module-heading text-center mb-4">Best Selling Brands</h3>
+{% endif %}
 <div id="carousel-banner-{{ module }}" class="carousel slide{% if effect == 'fade' %} carousel-fade{% endif %}" data-bs-ride="carousel">
   {% if indicators and banners|batch(items)|length > 1 %}
     <div class="carousel-indicators">

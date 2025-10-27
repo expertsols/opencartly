@@ -156,39 +156,113 @@ div.required .col-form-label:before, div.required .form-label:before {
 }
 /* top */
 #top {
-  background-color: #EEEEEE;
-  border-bottom: 1px solid #e2e2e2;
-  padding: 10px 0;
+  background-color: #229ac8;
+  background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+  background-repeat: repeat-x;
+  border: 1px solid #1f90bb;
+  border-color: #1f90bb #1f90bb #145e7a;
+  border-radius: 4px;
   margin: 0 0 20px 0;
-  min-height: 44px;
-  position: relative;
+  padding: 6px 0;
+  min-height: 37px;
+  color: #fff;
 }
-#top .nav > .list-inline > .list-inline-item, #top .nav > .list-inline .list-inline-item > a, #top .nav > .list-inline .list-inline-item .dropdown > a {
-  color: #888;
-  text-shadow: 0 1px 0 #FFF;
+#top .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#top .container .nav {
+  float: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+}
+#top .nav > .list-inline,
+#top ul.list-inline {
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+#top ul.list-inline > li {
+  display: flex;
+  align-items: center;
+}
+#top .nav > .list-inline .list-inline-item > a,
+#top .nav > .list-inline .list-inline-item .dropdown > a,
+#top .list-inline-item > a,
+#top .list-inline-item .dropdown > a {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  color: #fff;
+  line-height: 1.4;
+  padding: 4px 0;
+  text-shadow: none;
+  text-decoration: none;
+}
+#top .list-inline-item > a:hover,
+#top .list-inline-item .dropdown > a:hover {
+  color: #fff;
 }
 #top .btn-link {
-  color: #888;
-  text-shadow: 0 1px 0 #FFF;
+  color: #fff;
+  text-shadow: none;
   text-decoration: none;
 }
 #top .btn-link:hover {
-  color: #444;
+  color: #fff;
 }
-#top a {
-  font-size: 1.1em;
-  text-decoration: none;
+#top i,
+#top span {
+  color: #fff;
+}
+.top-right .list-inline-item > a i,
+.top-right .list-inline-item > a svg {
+  margin-right: 6px;
+}
+.top-right .list-inline-item > a span {
+  margin-left: 4px;
+}
+.top-right .dropdown-toggle .fa-caret-down {
+  margin-left: 6px;
+}
+.top-left,
+.top-right {
+  margin: 0;
 }
 footer a {
   font-size: 1.1em;
   text-decoration: none;
 }
 /* logo */
+#header .row {
+  --bs-gutter-y: 0;
+  align-items: center;
+}
 #logo {
-  margin: 0 0 10px 0;
+  margin: 0;
+  text-align: center;
 }
 #logo img {
   max-width: 200px;
+}
+@media (min-width: 768px) {
+  #logo {
+    text-align: left;
+  }
+}
+@media (min-width: 768px) {
+  #search,
+  #header-cart {
+    margin-bottom: 0;
+  }
 }
 /* search */
 #search {

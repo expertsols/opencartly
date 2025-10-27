@@ -165,125 +165,124 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
 <div id=\"alert\" class=\"toast-container position-fixed top-0 end-0 p-3\"></div>
 <nav id=\"top\">
   <div class=\"container\">
-    <div class=\"nav float-start\">
-      <ul class=\"list-inline\">
+    <div class=\"nav top-left\">
+      <span class=\"fw-bold me-3\">Your Trusted Technology Partner - Since 2019</span>
+      <ul class=\"list-inline d-inline\">
         <li class=\"list-inline-item\">";
-        // line 43
+        // line 44
         yield ($context["currency"] ?? null);
         yield "</li>
         <li class=\"list-inline-item\">";
-        // line 44
+        // line 45
         yield ($context["language"] ?? null);
         yield "</li>
       </ul>
     </div>
-    <div class=\"nav float-end\">
+    <div class=\"nav top-right\">
       <ul class=\"list-inline\">
-        <li class=\"list-inline-item\"><a href=\"";
-        // line 49
-        yield ($context["contact"] ?? null);
-        yield "\"><i class=\"fa-solid fa-phone\"></i></a> <span class=\"d-none d-md-inline\">";
-        yield ($context["telephone"] ?? null);
-        yield "</span></li>
         <li class=\"list-inline-item\">
-          <div class=\"dropdown\">
-            <a href=\"";
-        // line 52
-        yield ($context["account"] ?? null);
-        yield "\" class=\"dropdown-toggle\" data-bs-toggle=\"dropdown\"><i class=\"fa-solid fa-user\"></i> <span class=\"d-none d-md-inline\">";
-        yield ($context["text_account"] ?? null);
-        yield "</span> <i class=\"fa-solid fa-caret-down\"></i></a>
-            <ul class=\"dropdown-menu dropdown-menu-right\">
-              ";
-        // line 54
-        if ( !($context["logged"] ?? null)) {
-            // line 55
-            yield "                <li><a href=\"";
-            yield ($context["register"] ?? null);
-            yield "\" class=\"dropdown-item\">";
-            yield ($context["text_register"] ?? null);
-            yield "</a></li>
-                <li><a href=\"";
-            // line 56
-            yield ($context["login"] ?? null);
-            yield "\" class=\"dropdown-item\">";
-            yield ($context["text_login"] ?? null);
-            yield "</a></li>
-              ";
-        } else {
-            // line 58
-            yield "                <li><a href=\"";
-            yield ($context["account"] ?? null);
-            yield "\" class=\"dropdown-item\">";
-            yield ($context["text_account"] ?? null);
-            yield "</a></li>
-                <li><a href=\"";
-            // line 59
-            yield ($context["order"] ?? null);
-            yield "\" class=\"dropdown-item\">";
-            yield ($context["text_order"] ?? null);
-            yield "</a></li>
-                <li><a href=\"";
-            // line 60
-            yield ($context["transaction"] ?? null);
-            yield "\" class=\"dropdown-item\">";
-            yield ($context["text_transaction"] ?? null);
-            yield "</a></li>
-                <li><a href=\"";
-            // line 61
-            yield ($context["download"] ?? null);
-            yield "\" class=\"dropdown-item\">";
-            yield ($context["text_download"] ?? null);
-            yield "</a></li>
-                <li><a href=\"";
-            // line 62
-            yield ($context["logout"] ?? null);
-            yield "\" class=\"dropdown-item\">";
-            yield ($context["text_logout"] ?? null);
-            yield "</a></li>
-              ";
-        }
-        // line 64
-        yield "            </ul>
-          </div>
+          <a href=\"";
+        // line 51
+        yield ($context["contact"] ?? null);
+        yield "\" class=\"topbar-contact\">
+            <i class=\"fa-solid fa-phone\"></i>
+            <span class=\"d-none d-md-inline\">";
+        // line 53
+        yield ($context["telephone"] ?? null);
+        yield "</span>
+          </a>
         </li>
         <li class=\"list-inline-item\"><a href=\"";
-        // line 67
+        // line 56
         yield ($context["wishlist"] ?? null);
-        yield "\" id=\"wishlist-total\" title=\"";
+        yield "\" title=\"";
         yield ($context["text_wishlist"] ?? null);
         yield "\"><i class=\"fa-solid fa-heart\"></i> <span class=\"d-none d-md-inline\">";
         yield ($context["text_wishlist"] ?? null);
         yield "</span></a></li>
         <li class=\"list-inline-item\"><a href=\"";
-        // line 68
+        // line 57
         yield ($context["shopping_cart"] ?? null);
         yield "\" title=\"";
         yield ($context["text_shopping_cart"] ?? null);
         yield "\"><i class=\"fa-solid fa-cart-shopping\"></i> <span class=\"d-none d-md-inline\">";
         yield ($context["text_shopping_cart"] ?? null);
         yield "</span></a></li>
-        <li class=\"list-inline-item\"><a href=\"";
-        // line 69
-        yield ($context["checkout"] ?? null);
-        yield "\" title=\"";
-        yield ($context["text_checkout"] ?? null);
-        yield "\"><i class=\"fa-solid fa-share\"></i> <span class=\"d-none d-md-inline\">";
-        yield ($context["text_checkout"] ?? null);
-        yield "</span></a></li>
+        <li class=\"list-inline-item\">
+          <div class=\"dropdown\">
+            <a href=\"";
+        // line 60
+        yield ($context["account"] ?? null);
+        yield "\" class=\"dropdown-toggle\" data-bs-toggle=\"dropdown\"><i class=\"fa-solid fa-user\"></i> <span class=\"d-none d-md-inline\">";
+        yield ($context["text_account"] ?? null);
+        yield "</span> <i class=\"fa-solid fa-caret-down\"></i></a>
+            <ul class=\"dropdown-menu dropdown-menu-right\">
+              ";
+        // line 62
+        if ( !($context["logged"] ?? null)) {
+            // line 63
+            yield "                <li><a href=\"";
+            yield ($context["register"] ?? null);
+            yield "\" class=\"dropdown-item\">";
+            yield ($context["text_register"] ?? null);
+            yield "</a></li>
+                <li><a href=\"";
+            // line 64
+            yield ($context["login"] ?? null);
+            yield "\" class=\"dropdown-item\">";
+            yield ($context["text_login"] ?? null);
+            yield "</a></li>
+              ";
+        } else {
+            // line 66
+            yield "                <li><a href=\"";
+            yield ($context["account"] ?? null);
+            yield "\" class=\"dropdown-item\">";
+            yield ($context["text_account"] ?? null);
+            yield "</a></li>
+                <li><a href=\"";
+            // line 67
+            yield ($context["order"] ?? null);
+            yield "\" class=\"dropdown-item\">";
+            yield ($context["text_order"] ?? null);
+            yield "</a></li>
+                <li><a href=\"";
+            // line 68
+            yield ($context["transaction"] ?? null);
+            yield "\" class=\"dropdown-item\">";
+            yield ($context["text_transaction"] ?? null);
+            yield "</a></li>
+                <li><a href=\"";
+            // line 69
+            yield ($context["download"] ?? null);
+            yield "\" class=\"dropdown-item\">";
+            yield ($context["text_download"] ?? null);
+            yield "</a></li>
+                <li><a href=\"";
+            // line 70
+            yield ($context["logout"] ?? null);
+            yield "\" class=\"dropdown-item\">";
+            yield ($context["text_logout"] ?? null);
+            yield "</a></li>
+              ";
+        }
+        // line 72
+        yield "            </ul>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 <header>
   <div class=\"container\">
-    <div class=\"row\">
-      <div class=\"col-md-3 col-lg-4\">
+    <div class=\"row g-3 align-items-center\">
+      <div class=\"col-md-3 col-lg-4 mb-3 mb-md-0\">
         <div id=\"logo\">
           ";
-        // line 79
+        // line 84
         if (($context["logo"] ?? null)) {
-            // line 80
+            // line 85
             yield "            <a href=\"";
             yield ($context["home"] ?? null);
             yield "\"><img src=\"";
@@ -295,7 +294,7 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
             yield "\" class=\"img-fluid\"/></a>
           ";
         } else {
-            // line 82
+            // line 87
             yield "            <h1><a href=\"";
             yield ($context["home"] ?? null);
             yield "\">";
@@ -303,15 +302,15 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
             yield "</a></h1>
           ";
         }
-        // line 84
+        // line 89
         yield "        </div>
       </div>
-      <div class=\"col-md-5\">";
-        // line 86
+      <div class=\"col-md-5 mb-3 mb-md-0 d-flex align-items-center\">";
+        // line 91
         yield ($context["search"] ?? null);
         yield "</div>
-      <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-2\">";
-        // line 87
+      <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-3 mb-md-0 d-flex align-items-center justify-content-md-end\">";
+        // line 92
         yield ($context["cart"] ?? null);
         yield "</div>
     </div>
@@ -319,7 +318,7 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
 </header>
 <main>
   ";
-        // line 92
+        // line 97
         yield ($context["menu"] ?? null);
         yield "
 ";
@@ -347,7 +346,7 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  323 => 92,  315 => 87,  311 => 86,  307 => 84,  299 => 82,  287 => 80,  285 => 79,  268 => 69,  260 => 68,  252 => 67,  247 => 64,  240 => 62,  234 => 61,  228 => 60,  222 => 59,  215 => 58,  208 => 56,  201 => 55,  199 => 54,  192 => 52,  184 => 49,  176 => 44,  172 => 43,  163 => 36,  154 => 34,  149 => 33,  138 => 31,  133 => 30,  124 => 28,  119 => 27,  106 => 25,  102 => 24,  93 => 18,  89 => 17,  85 => 16,  80 => 15,  74 => 13,  71 => 12,  65 => 10,  63 => 9,  59 => 8,  55 => 7,  45 => 2,  42 => 1,);
+        return array (  322 => 97,  314 => 92,  310 => 91,  306 => 89,  298 => 87,  286 => 85,  284 => 84,  270 => 72,  263 => 70,  257 => 69,  251 => 68,  245 => 67,  238 => 66,  231 => 64,  224 => 63,  222 => 62,  215 => 60,  205 => 57,  197 => 56,  191 => 53,  186 => 51,  177 => 45,  173 => 44,  163 => 36,  154 => 34,  149 => 33,  138 => 31,  133 => 30,  124 => 28,  119 => 27,  106 => 25,  102 => 24,  93 => 18,  89 => 17,  85 => 16,  80 => 15,  74 => 13,  71 => 12,  65 => 10,  63 => 9,  59 => 8,  55 => 7,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -392,15 +391,23 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
 <div id=\"alert\" class=\"toast-container position-fixed top-0 end-0 p-3\"></div>
 <nav id=\"top\">
   <div class=\"container\">
-    <div class=\"nav float-start\">
-      <ul class=\"list-inline\">
+    <div class=\"nav top-left\">
+      <span class=\"fw-bold me-3\">Your Trusted Technology Partner - Since 2019</span>
+      <ul class=\"list-inline d-inline\">
         <li class=\"list-inline-item\">{{ currency }}</li>
         <li class=\"list-inline-item\">{{ language }}</li>
       </ul>
     </div>
-    <div class=\"nav float-end\">
+    <div class=\"nav top-right\">
       <ul class=\"list-inline\">
-        <li class=\"list-inline-item\"><a href=\"{{ contact }}\"><i class=\"fa-solid fa-phone\"></i></a> <span class=\"d-none d-md-inline\">{{ telephone }}</span></li>
+        <li class=\"list-inline-item\">
+          <a href=\"{{ contact }}\" class=\"topbar-contact\">
+            <i class=\"fa-solid fa-phone\"></i>
+            <span class=\"d-none d-md-inline\">{{ telephone }}</span>
+          </a>
+        </li>
+        <li class=\"list-inline-item\"><a href=\"{{ wishlist }}\" title=\"{{ text_wishlist }}\"><i class=\"fa-solid fa-heart\"></i> <span class=\"d-none d-md-inline\">{{ text_wishlist }}</span></a></li>
+        <li class=\"list-inline-item\"><a href=\"{{ shopping_cart }}\" title=\"{{ text_shopping_cart }}\"><i class=\"fa-solid fa-cart-shopping\"></i> <span class=\"d-none d-md-inline\">{{ text_shopping_cart }}</span></a></li>
         <li class=\"list-inline-item\">
           <div class=\"dropdown\">
             <a href=\"{{ account }}\" class=\"dropdown-toggle\" data-bs-toggle=\"dropdown\"><i class=\"fa-solid fa-user\"></i> <span class=\"d-none d-md-inline\">{{ text_account }}</span> <i class=\"fa-solid fa-caret-down\"></i></a>
@@ -418,17 +425,14 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
             </ul>
           </div>
         </li>
-        <li class=\"list-inline-item\"><a href=\"{{ wishlist }}\" id=\"wishlist-total\" title=\"{{ text_wishlist }}\"><i class=\"fa-solid fa-heart\"></i> <span class=\"d-none d-md-inline\">{{ text_wishlist }}</span></a></li>
-        <li class=\"list-inline-item\"><a href=\"{{ shopping_cart }}\" title=\"{{ text_shopping_cart }}\"><i class=\"fa-solid fa-cart-shopping\"></i> <span class=\"d-none d-md-inline\">{{ text_shopping_cart }}</span></a></li>
-        <li class=\"list-inline-item\"><a href=\"{{ checkout }}\" title=\"{{ text_checkout }}\"><i class=\"fa-solid fa-share\"></i> <span class=\"d-none d-md-inline\">{{ text_checkout }}</span></a></li>
       </ul>
     </div>
   </div>
 </nav>
 <header>
   <div class=\"container\">
-    <div class=\"row\">
-      <div class=\"col-md-3 col-lg-4\">
+    <div class=\"row g-3 align-items-center\">
+      <div class=\"col-md-3 col-lg-4 mb-3 mb-md-0\">
         <div id=\"logo\">
           {% if logo %}
             <a href=\"{{ home }}\"><img src=\"{{ logo }}\" title=\"{{ name }}\" alt=\"{{ name }}\" class=\"img-fluid\"/></a>
@@ -437,8 +441,8 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
           {% endif %}
         </div>
       </div>
-      <div class=\"col-md-5\">{{ search }}</div>
-      <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-2\">{{ cart }}</div>
+      <div class=\"col-md-5 mb-3 mb-md-0 d-flex align-items-center\">{{ search }}</div>
+      <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-3 mb-md-0 d-flex align-items-center justify-content-md-end\">{{ cart }}</div>
     </div>
   </div>
 </header>

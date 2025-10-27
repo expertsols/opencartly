@@ -142,29 +142,42 @@ class __TwigTemplate_857902fcadb97b1e98f62ed0129e5c72 extends Template
         yield ($context["add_to_cart"] ?? null);
         yield "\" data-bs-toggle=\"tooltip\" title=\"";
         yield ($context["button_cart"] ?? null);
-        yield "\"><i class=\"fa-solid fa-shopping-cart\"></i></button>
+        yield "\" class=\"product-action btn-inverse\" aria-label=\"";
+        yield ($context["button_cart"] ?? null);
+        yield "\">
+          <i class=\"fa-solid fa-shopping-cart\"></i>
+        </button>
         <button type=\"submit\" formaction=\"";
-        // line 34
+        // line 36
         yield ($context["add_to_wishlist"] ?? null);
         yield "\" data-bs-toggle=\"tooltip\" title=\"";
         yield ($context["button_wishlist"] ?? null);
-        yield "\"><i class=\"fa-solid fa-heart\"></i></button>
+        yield "\" class=\"product-action btn-inverse\" aria-label=\"";
+        yield ($context["button_wishlist"] ?? null);
+        yield "\">
+          <i class=\"fa-solid fa-heart\"></i>
+        </button>
         <button type=\"submit\" formaction=\"";
-        // line 35
+        // line 39
         yield ($context["add_to_compare"] ?? null);
         yield "\" data-bs-toggle=\"tooltip\" title=\"";
         yield ($context["button_compare"] ?? null);
-        yield "\"><i class=\"fa-solid fa-arrow-right-arrow-left\"></i></button>
+        yield "\" class=\"product-action btn-inverse\" aria-label=\"";
+        yield ($context["button_compare"] ?? null);
+        yield "\">
+          <i class=\"fa-solid fa-arrow-right-arrow-left\"></i>
+        </button>
       </div>
       <input type=\"hidden\" name=\"product_id\" value=\"";
-        // line 37
+        // line 43
         yield ($context["product_id"] ?? null);
         yield "\"/> <input type=\"hidden\" name=\"quantity\" value=\"";
         yield ($context["minimum"] ?? null);
         yield "\"/>
     </form>
   </div>
-</div>";
+</div>
+";
         yield from [];
     }
 
@@ -189,7 +202,7 @@ class __TwigTemplate_857902fcadb97b1e98f62ed0129e5c72 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  161 => 37,  154 => 35,  148 => 34,  142 => 33,  137 => 31,  134 => 30,  130 => 28,  124 => 27,  120 => 25,  116 => 23,  113 => 22,  109 => 21,  106 => 20,  103 => 19,  99 => 17,  91 => 15,  88 => 14,  80 => 12,  74 => 10,  72 => 9,  69 => 8,  67 => 7,  63 => 6,  57 => 5,  45 => 2,  42 => 1,);
+        return array (  173 => 43,  162 => 39,  152 => 36,  142 => 33,  137 => 31,  134 => 30,  130 => 28,  124 => 27,  120 => 25,  116 => 23,  113 => 22,  109 => 21,  106 => 20,  103 => 19,  99 => 17,  91 => 15,  88 => 14,  80 => 12,  74 => 10,  72 => 9,  69 => 8,  67 => 7,  63 => 6,  57 => 5,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -226,13 +239,20 @@ class __TwigTemplate_857902fcadb97b1e98f62ed0129e5c72 extends Template
     </div>
     <form method=\"post\" data-oc-toggle=\"ajax\" data-oc-load=\"{{ cart }}\" data-oc-target=\"#header-cart\">
       <div class=\"button-group\">
-        <button type=\"submit\" formaction=\"{{ add_to_cart }}\" data-bs-toggle=\"tooltip\" title=\"{{ button_cart }}\"><i class=\"fa-solid fa-shopping-cart\"></i></button>
-        <button type=\"submit\" formaction=\"{{ add_to_wishlist }}\" data-bs-toggle=\"tooltip\" title=\"{{ button_wishlist }}\"><i class=\"fa-solid fa-heart\"></i></button>
-        <button type=\"submit\" formaction=\"{{ add_to_compare }}\" data-bs-toggle=\"tooltip\" title=\"{{ button_compare }}\"><i class=\"fa-solid fa-arrow-right-arrow-left\"></i></button>
+        <button type=\"submit\" formaction=\"{{ add_to_cart }}\" data-bs-toggle=\"tooltip\" title=\"{{ button_cart }}\" class=\"product-action btn-inverse\" aria-label=\"{{ button_cart }}\">
+          <i class=\"fa-solid fa-shopping-cart\"></i>
+        </button>
+        <button type=\"submit\" formaction=\"{{ add_to_wishlist }}\" data-bs-toggle=\"tooltip\" title=\"{{ button_wishlist }}\" class=\"product-action btn-inverse\" aria-label=\"{{ button_wishlist }}\">
+          <i class=\"fa-solid fa-heart\"></i>
+        </button>
+        <button type=\"submit\" formaction=\"{{ add_to_compare }}\" data-bs-toggle=\"tooltip\" title=\"{{ button_compare }}\" class=\"product-action btn-inverse\" aria-label=\"{{ button_compare }}\">
+          <i class=\"fa-solid fa-arrow-right-arrow-left\"></i>
+        </button>
       </div>
       <input type=\"hidden\" name=\"product_id\" value=\"{{ product_id }}\"/> <input type=\"hidden\" name=\"quantity\" value=\"{{ minimum }}\"/>
     </form>
   </div>
-</div>", "catalog/view/template/product/thumb.twig", "D:\\xampp\\htdocs\\www\\opencartly\\catalog\\view\\template\\product\\thumb.twig");
+</div>
+", "catalog/view/template/product/thumb.twig", "D:\\xampp\\htdocs\\www\\opencartly\\catalog\\view\\template\\product\\thumb.twig");
     }
 }

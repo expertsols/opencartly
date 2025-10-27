@@ -39,7 +39,7 @@ class __TwigTemplate_3df62a08bef58071a903ff8a82b592c0 extends Template
     {
         $macros = $this->macros;
         // line 1
-        yield "<div id=\"search\" class=\"input-group mb-3\">
+        yield "<div id=\"search\" class=\"input-group w-100\">
 \t<input type=\"text\" name=\"search\" value=\"";
         // line 2
         yield ($context["search"] ?? null);
@@ -49,7 +49,7 @@ class __TwigTemplate_3df62a08bef58071a903ff8a82b592c0 extends Template
 \t<button type=\"button\" data-lang=\"";
         // line 3
         yield ($context["language"] ?? null);
-        yield "\" class=\"btn btn-light btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
+        yield "\" class=\"btn btn-inverse btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
 </div>
 ";
         yield from [];
@@ -81,9 +81,9 @@ class __TwigTemplate_3df62a08bef58071a903ff8a82b592c0 extends Template
 
     public function getSourceContext(): Source
     {
-        return new Source("<div id=\"search\" class=\"input-group mb-3\">
+        return new Source("<div id=\"search\" class=\"input-group w-100\">
 \t<input type=\"text\" name=\"search\" value=\"{{ search }}\" placeholder=\"{{ text_search }}\" class=\"form-control form-control-lg\">
-\t<button type=\"button\" data-lang=\"{{ language }}\" class=\"btn btn-light btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
+\t<button type=\"button\" data-lang=\"{{ language }}\" class=\"btn btn-inverse btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
 </div>
 ", "catalog/view/template/common/search.twig", "D:\\xampp\\htdocs\\www\\opencartly\\catalog\\view\\template\\common\\search.twig");
     }
