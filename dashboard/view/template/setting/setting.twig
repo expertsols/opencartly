@@ -1189,6 +1189,36 @@
                     <div class="form-text">{{ help_seo_url }}</div>
                   </div>
                 </div>
+                <div class="row mb-3">
+                  <label for="input-remove-url-prefixes" class="col-sm-2 col-form-label">{{ entry_remove_url_prefixes }}</label>
+                  <div class="col-sm-10">
+                    <div class="form-check form-switch form-switch-lg">
+                      <input type="hidden" name="config_remove_url_prefixes" value="0"/>
+                      <input type="checkbox" name="config_remove_url_prefixes" value="1" id="input-remove-url-prefixes" class="form-check-input"{% if config_remove_url_prefixes %} checked{% endif %}/>
+                    </div>
+                    <div class="form-text" data-bs-toggle="tooltip" title="{{ help_remove_url_prefixes }}">{{ help_remove_url_prefixes }}</div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="input-auto-generate-redirects" class="col-sm-2 col-form-label">{{ entry_auto_generate_redirects }}</label>
+                  <div class="col-sm-10">
+                    <div class="form-check form-switch form-switch-lg">
+                      <input type="hidden" name="config_auto_generate_redirects" value="0"/>
+                      <input type="checkbox" name="config_auto_generate_redirects" value="1" id="input-auto-generate-redirects" class="form-check-input"{% if config_auto_generate_redirects %} checked{% endif %}/>
+                    </div>
+                    <div class="form-text">Automatically create 301 redirects in oc_redirects whenever SEO URLs are renamed.</div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="input-database-redirect-repair" class="col-sm-2 col-form-label">{{ entry_database_redirect_repair }}</label>
+                  <div class="col-sm-10">
+                    <div class="form-check form-switch form-switch-lg">
+                      <input type="hidden" name="config_database_redirect_repair" value="0"/>
+                      <input type="checkbox" name="config_database_redirect_repair" value="1" id="input-database-redirect-repair" class="form-check-input"{% if config_database_redirect_repair %} checked{% endif %}/>
+                    </div>
+                    <div class="form-text">Run background checks on oc_redirects to detect and correct broken or conflicting redirect chains.</div>
+                  </div>
+                </div>
               </fieldset>
               <fieldset>
                 <legend>{{ text_security }}</legend>

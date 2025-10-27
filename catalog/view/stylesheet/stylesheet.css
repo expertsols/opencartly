@@ -242,27 +242,8 @@ footer a {
   text-decoration: none;
 }
 /* logo */
-#header .row {
-  --bs-gutter-y: 0;
-  align-items: center;
-}
 #logo {
-  margin: 0;
-  text-align: center;
-}
-#logo img {
-  max-width: 200px;
-}
-@media (min-width: 768px) {
-  #logo {
-    text-align: left;
-  }
-}
-@media (min-width: 768px) {
-  #search,
-  #header-cart {
-    margin-bottom: 0;
-  }
+  margin: 0 0 10px 0;
 }
 /* search */
 #search {

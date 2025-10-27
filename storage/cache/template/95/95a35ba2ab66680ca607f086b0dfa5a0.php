@@ -47,91 +47,101 @@ class __TwigTemplate_002bc1eac050a1efc99c9ca9f10c5b36 extends Template
             // line 4
             yield ($context["text_category"] ?? null);
             yield "</div>
-      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#narbar-menu\"><i class=\"fa-solid fa-bars\"></i></button>
+      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#narbar-menu\">
+        <i class=\"fa-solid fa-bars\"></i>
+      </button>
       <div class=\"collapse navbar-collapse\" id=\"narbar-menu\">
         <ul class=\"nav navbar-nav\">
           <li class=\"nav-item\"><a href=\"";
-            // line 8
+            // line 10
             yield ($context["home"] ?? null);
             yield "\" class=\"nav-link\">";
             yield ($context["text_home"] ?? null);
             yield "</a></li>
+
           ";
-            // line 9
+            // line 12
             $context['_parent'] = $context;
             $context['_seq'] = CoreExtension::ensureTraversable(($context["categories"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 10
+                // line 13
                 yield "            ";
-                if (CoreExtension::getAttribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 10)) {
-                    // line 11
-                    yield "              <li class=\"nav-item dropdown\"><a href=\"";
-                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 11);
+                if (CoreExtension::getAttribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 13)) {
+                    // line 14
+                    yield "              <li class=\"nav-item dropdown\">
+                <a href=\"";
+                    // line 15
+                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 15);
                     yield "\" class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\">";
-                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 11);
+                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 15);
                     yield "</a>
                 <div class=\"dropdown-menu\">
                   <div class=\"dropdown-inner\">
                     ";
-                    // line 14
+                    // line 18
                     $context['_parent'] = $context;
-                    $context['_seq'] = CoreExtension::ensureTraversable(Twig\Extension\CoreExtension::batch(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 14), (Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 14)) / Twig\Extension\CoreExtension::round(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "column", [], "any", false, false, false, 14), 1, "ceil"))));
+                    $context['_seq'] = CoreExtension::ensureTraversable(Twig\Extension\CoreExtension::batch(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 18), (Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 18)) / Twig\Extension\CoreExtension::round(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "column", [], "any", false, false, false, 18), 1, "ceil"))));
                     foreach ($context['_seq'] as $context["_key"] => $context["children"]) {
-                        // line 15
+                        // line 19
                         yield "                      <ul class=\"list-unstyled\">
                         ";
-                        // line 16
+                        // line 20
                         $context['_parent'] = $context;
                         $context['_seq'] = CoreExtension::ensureTraversable($context["children"]);
                         foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
-                            // line 17
+                            // line 21
                             yield "                          <li><a href=\"";
-                            yield CoreExtension::getAttribute($this->env, $this->source, $context["child"], "href", [], "any", false, false, false, 17);
+                            yield CoreExtension::getAttribute($this->env, $this->source, $context["child"], "href", [], "any", false, false, false, 21);
                             yield "\" class=\"nav-link\">";
-                            yield CoreExtension::getAttribute($this->env, $this->source, $context["child"], "name", [], "any", false, false, false, 17);
+                            yield CoreExtension::getAttribute($this->env, $this->source, $context["child"], "name", [], "any", false, false, false, 21);
                             yield "</a></li>
                         ";
                         }
                         $_parent = $context['_parent'];
                         unset($context['_seq'], $context['_key'], $context['child'], $context['_parent']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 19
+                        // line 23
                         yield "                      </ul>
                     ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_key'], $context['children'], $context['_parent']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 21
+                    // line 25
                     yield "                  </div>
                   <a href=\"";
-                    // line 22
-                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 22);
+                    // line 26
+                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 26);
                     yield "\" class=\"see-all\">";
                     yield ($context["text_all"] ?? null);
                     yield " ";
-                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 22);
+                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 26);
                     yield "</a>
                 </div>
               </li>
             ";
                 } else {
-                    // line 26
+                    // line 30
                     yield "              <li class=\"nav-item\"><a href=\"";
-                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 26);
+                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 30);
                     yield "\" class=\"nav-link\">";
-                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 26);
+                    yield CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 30);
                     yield "</a></li>
             ";
                 }
-                // line 28
+                // line 32
                 yield "          ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 29
-            yield "        </ul>
+            // line 33
+            yield "
+          ";
+            // line 35
+            yield "          <li class=\"nav-item\"><a href=\"/software-services\" class=\"nav-link\">Software Services</a></li>
+          <li class=\"nav-item\"><a href=\"/contact\" class=\"nav-link\">Contact</a></li>
+        </ul>
       </div>
     </nav>
   </div>
@@ -161,7 +171,7 @@ class __TwigTemplate_002bc1eac050a1efc99c9ca9f10c5b36 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  134 => 29,  128 => 28,  120 => 26,  109 => 22,  106 => 21,  99 => 19,  88 => 17,  84 => 16,  81 => 15,  77 => 14,  68 => 11,  65 => 10,  61 => 9,  55 => 8,  48 => 4,  44 => 2,  42 => 1,);
+        return array (  142 => 35,  139 => 33,  133 => 32,  125 => 30,  114 => 26,  111 => 25,  104 => 23,  93 => 21,  89 => 20,  86 => 19,  82 => 18,  74 => 15,  71 => 14,  68 => 13,  64 => 12,  57 => 10,  48 => 4,  44 => 2,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -170,13 +180,17 @@ class __TwigTemplate_002bc1eac050a1efc99c9ca9f10c5b36 extends Template
   <div class=\"container\">
     <nav id=\"menu\" class=\"navbar navbar-expand-lg navbar-light bg-primary\">
       <div id=\"category\" class=\"d-block d-sm-block d-lg-none\">{{ text_category }}</div>
-      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#narbar-menu\"><i class=\"fa-solid fa-bars\"></i></button>
+      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#narbar-menu\">
+        <i class=\"fa-solid fa-bars\"></i>
+      </button>
       <div class=\"collapse navbar-collapse\" id=\"narbar-menu\">
         <ul class=\"nav navbar-nav\">
           <li class=\"nav-item\"><a href=\"{{ home }}\" class=\"nav-link\">{{ text_home }}</a></li>
+
           {% for category in categories %}
             {% if category.children %}
-              <li class=\"nav-item dropdown\"><a href=\"{{ category.href }}\" class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\">{{ category.name }}</a>
+              <li class=\"nav-item dropdown\">
+                <a href=\"{{ category.href }}\" class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\">{{ category.name }}</a>
                 <div class=\"dropdown-menu\">
                   <div class=\"dropdown-inner\">
                     {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
@@ -194,11 +208,14 @@ class __TwigTemplate_002bc1eac050a1efc99c9ca9f10c5b36 extends Template
               <li class=\"nav-item\"><a href=\"{{ category.href }}\" class=\"nav-link\">{{ category.name }}</a></li>
             {% endif %}
           {% endfor %}
+
+          {# Custom Information Pages Added Correctly Inside Menu #}
+          <li class=\"nav-item\"><a href=\"/software-services\" class=\"nav-link\">Software Services</a></li>
+          <li class=\"nav-item\"><a href=\"/contact\" class=\"nav-link\">Contact</a></li>
         </ul>
       </div>
     </nav>
   </div>
-{% endif %}
-", "catalog/view/template/common/menu.twig", "D:\\xampp\\htdocs\\www\\opencartly\\catalog\\view\\template\\common\\menu.twig");
+{% endif %}", "catalog/view/template/common/menu.twig", "D:\\xampp\\htdocs\\www\\opencartly\\catalog\\view\\template\\common\\menu.twig");
     }
 }

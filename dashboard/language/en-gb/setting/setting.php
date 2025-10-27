@@ -164,6 +164,7 @@ $_['entry_mail_alert']                    = 'Alert Mail';
 $_['entry_mail_alert_email']              = 'Additional Alert Mail';
 $_['entry_robots']                        = 'Robots';
 $_['entry_seo_url']                       = 'Use SEO URLs';
+$_['entry_remove_url_prefixes']           = 'Remove URL Prefixes';
 $_['entry_maintenance']                   = 'Maintenance Mode';
 $_['entry_user_2fa']                      = 'Two-factor Security';
 $_['entry_error_display']                 = 'Display Errors';
@@ -241,6 +242,7 @@ $_['help_mail_alert_email']               = 'Any additional emails you want to r
 $_['help_user_2fa']                       = 'Two-factor security for admin users.';
 $_['help_robots']                         = 'A list of web crawler user agents that shared sessions will not be used with. Use separate lines for each user agent.';
 $_['help_seo_url']                        = 'To use SEO URLs, apache module mod-rewrite must be installed and you need to rename the htaccess.txt to .htaccess.';
+$_['help_remove_url_prefixes']            = 'Enable this to remove \'/catalog/\', \'/information/\', and other prefixes from URLs for cleaner SEO-friendly links (e.g., /laptops instead of /catalog/laptops).';
 $_['help_maintenance']                    = 'Prevents customers from browsing your store. They will instead see a maintenance message. If logged in as admin, you will see the store as normal.';
 $_['help_error_display']                  = 'Only turn on for development and turn off for production.';
 

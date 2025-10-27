@@ -10786,13 +10786,9 @@ button:focus {
   margin: 0;
 }
 /* logo */
-#header .row {
-  --bs-gutter-y: 0;
-  align-items: center;
-}
 #logo {
   text-align: center;
-  margin: 0;
+  margin: 7px 0 7px 0;
 }
 #logo img {
   max-width: 200px;
@@ -10800,12 +10796,6 @@ button:focus {
 @media (min-width: 768px) {
   #logo {
     text-align: left;
-  }
-}
-@media (min-width: 768px) {
-  #search,
-  #header-cart {
-    margin-bottom: 0;
   }
 }
 /* search */

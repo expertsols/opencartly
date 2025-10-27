@@ -3,6 +3,9 @@ namespace Opencart\Catalog\Controller\Startup;
 /**
  * Class SeoUrl
  *
+ * Enhanced SEO URL controller with automatic redirect support
+ * Handles clean URL generation and old URL redirects
+ *
  * @package Opencart\Catalog\Controller\Startup
  */
 class SeoUrl extends \Opencart\System\Engine\Controller {
@@ -14,6 +17,9 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 
 	/**
 	 * Index
+	 *
+	 * Main method called on startup to handle SEO URLs
+	 * Also checks for redirects from old URLs to new URLs
 	 *
 	 * @return null
 	 */
@@ -31,6 +37,9 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 			foreach ($results as $result) {
 				$this->regex[$result['key']][] = $result;
 			}
+
+			// Check for redirects from old URLs to new clean URLs
+			$this->checkRedirects();
 
 			// Decode URL
 			if (!isset($this->request->get['_route_'])) {
@@ -62,21 +71,65 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 			}
 
 			if ($parts) {
+				// Check for redirects before serving 404
+				$current_path = '/' . trim($this->request->get['_route_'], '/');
+				$this->load->model('catalog/redirect');
+				$redirect = $this->model_catalog_redirect->getRedirectByOldUrl($current_path);
+				
+				if ($redirect) {
+					$base_url = $this->config->get('config_url');
+					$redirect_url = $base_url . ltrim($redirect['new_url'], '/');
+					$this->response->redirect($redirect_url, (int)$redirect['status_code']);
+					return;
+				}
+				
 				$this->request->get['route'] = $this->config->get('action_error');
 			}
 
 			if (!isset($this->request->get['route'])) {
 				$this->request->get['route'] = $this->config->get('action_default');
 			}
+		}
+	}
 
-			if ($parts) {
-				$this->request->get['route'] = $this->config->get('action_error');
-			}
+	/**
+	 * Check for redirects
+	 *
+	 * Checks if current URL should redirect to a new clean URL
+	 * Reads from oc_redirects table and performs 301 redirect
+	 *
+	 * @return void
+	 */
+	private function checkRedirects(): void {
+		// Only check if we have a route
+		if (!isset($this->request->get['_route_'])) {
+			return;
+		}
+
+		$current_path = '/' . trim($this->request->get['_route_'], '/');
+
+		// Load redirect model and check for redirect
+		$this->load->model('catalog/redirect');
+
+		$redirect = $this->model_catalog_redirect->getRedirectByOldUrl($current_path);
+
+		if ($redirect) {
+			// Get base URL
+			$base_url = $this->config->get('config_url');
+
+			// Build redirect URL
+			$redirect_url = $base_url . ltrim($redirect['new_url'], '/');
+
+			// Perform redirect
+			$this->response->redirect($redirect_url, (int)$redirect['status_code']);
 		}
 	}
 
 	/**
 	 * Rewrite
+	 *
+	 * Generates SEO-friendly URLs by converting query strings to clean paths
+	 * When "Remove URL Prefixes" is enabled, strips common prefixes
 	 *
 	 * @param string $link
 	 *
@@ -85,16 +138,20 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 	public function rewrite(string $link): string {
 		$url_info = parse_url(str_replace('&amp;', '&', $link));
 
+		if (!$url_info) {
+			return $link;
+		}
+
 		// Build the url
 		$url = '';
 
-		if ($url_info['scheme']) {
+		if (isset($url_info['scheme'])) {
 			$url .= $url_info['scheme'];
 		}
 
 		$url .= '://';
 
-		if ($url_info['host']) {
+		if (isset($url_info['host'])) {
 			$url .= $url_info['host'];
 		}
 
@@ -103,10 +160,10 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 		}
 
 		// Build the path
-		$url .= str_replace('/index.php', '', $url_info['path']);
+		$url .= str_replace('/index.php', '', $url_info['path'] ?? '');
 
 		// Parse the query into its separate parts
-		parse_str($url_info['query'], $query);
+		parse_str($url_info['query'] ?? '', $query);
 
 		// Start changing the URL query into a path
 		$paths = [];
@@ -160,8 +217,23 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 
 		array_multisort($sort_order, SORT_ASC, $paths);
 
+		// Check if we should remove URL prefixes (e.g., /catalog/, /information/, etc.)
+		// This setting can be toggled in admin: Settings > Settings > Server tab
+		// Config key: config_remove_url_prefixes
+		$remove_prefixes = $this->config->get('config_remove_url_prefixes');
+
 		foreach ($paths as $result) {
-			$url .= '/' . $result['keyword'];
+			$keyword = $result['keyword'];
+
+			// If clean URLs enabled, strip subdirectory prefixes from the keyword
+			if ($remove_prefixes) {
+				// Remove common OpenCart prefixes: /catalog/, /information/, /product/, /category/
+				$keyword = preg_replace('#^/(catalog|information|product|category)/#', '/', '/' . $keyword);
+				// Remove leading slash for URL building
+				$keyword = ltrim($keyword, '/');
+			}
+
+			$url .= '/' . $keyword;
 		}
 
 		$url .= '/';

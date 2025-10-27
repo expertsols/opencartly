@@ -539,11 +539,33 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
+			$old_keyword = '';
+			
+			// Get old keyword if editing
+			if ($post_info['seo_url_id']) {
+				$old_seo_url = $this->model_design_seo_url->getSeoUrl($post_info['seo_url_id']);
+				$old_keyword = $old_seo_url['keyword'] ?? '';
+			}
+			
 			// SEO
 			if (!$post_info['seo_url_id']) {
 				$json['seo_url_id'] = $this->model_design_seo_url->addSeoUrl($post_info['key'], $post_info['value'], $post_info['keyword'], $post_info['store_id'], $post_info['language_id'], (int)$post_info['sort_order']);
 			} else {
 				$this->model_design_seo_url->editSeoUrl($post_info['seo_url_id'], $post_info['key'], $post_info['value'], $post_info['keyword'], $post_info['store_id'], $post_info['language_id'], (int)$post_info['sort_order']);
+			}
+			
+			// Auto-generate redirect if keyword changed and setting is enabled
+			if ($old_keyword && $old_keyword != $post_info['keyword'] && $this->config->get('config_auto_generate_redirects')) {
+				$this->load->model('catalog/redirect');
+				
+				$old_url = '/' . ltrim($old_keyword, '/');
+				$new_url = '/' . ltrim($post_info['keyword'], '/');
+				
+				// Only create redirect if not already exists
+				$existing = $this->model_catalog_redirect->getRedirectByOldUrl($old_url);
+				if (!$existing) {
+					$this->model_catalog_redirect->addRedirect($old_url, $new_url, 301);
+				}
 			}
 
 			$json['success'] = $this->language->get('text_success');

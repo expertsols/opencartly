@@ -439,6 +439,9 @@ class Setting extends \Opencart\System\Engine\Controller {
 		// Server
 		$data['config_maintenance'] = $this->config->get('config_maintenance');
 		$data['config_seo_url'] = $this->config->get('config_seo_url');
+		$data['config_remove_url_prefixes'] = $this->config->get('config_remove_url_prefixes');
+		$data['config_auto_generate_redirects'] = $this->config->get('config_auto_generate_redirects', 1);
+		$data['config_database_redirect_repair'] = $this->config->get('config_database_redirect_repair', 0);
 
 		// Security
 		$data['config_user_2fa'] = $this->config->get('config_user_2fa');

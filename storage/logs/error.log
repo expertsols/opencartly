@@ -8,3 +8,4 @@
 2025-10-26 22:24:14 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 48
 2025-10-26 22:25:03 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 49
 2025-10-26 22:25:17 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 49
+2025-10-27 11:19:05 - syntax error, unexpected token "}" in D:\xampp\htdocs\www\opencartly\catalog\controller\startup\seo_url.php on line 188
