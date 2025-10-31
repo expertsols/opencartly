@@ -49,7 +49,7 @@ class __TwigTemplate_3df62a08bef58071a903ff8a82b592c0 extends Template
 \t<button type=\"button\" data-lang=\"";
         // line 3
         yield ($context["language"] ?? null);
-        yield "\" class=\"btn btn-inverse btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
+        yield "\" class=\"btn btn-primary btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
 </div>
 ";
         yield from [];
@@ -83,7 +83,7 @@ class __TwigTemplate_3df62a08bef58071a903ff8a82b592c0 extends Template
     {
         return new Source("<div id=\"search\" class=\"input-group w-100\">
 \t<input type=\"text\" name=\"search\" value=\"{{ search }}\" placeholder=\"{{ text_search }}\" class=\"form-control form-control-lg\">
-\t<button type=\"button\" data-lang=\"{{ language }}\" class=\"btn btn-inverse btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
+\t<button type=\"button\" data-lang=\"{{ language }}\" class=\"btn btn-primary btn-lg\"><i class=\"fa-solid fa-magnifying-glass\"></i></button>
 </div>
 ", "catalog/view/template/common/search.twig", "D:\\xampp\\htdocs\\www\\opencartly\\catalog\\view\\template\\common\\search.twig");
     }

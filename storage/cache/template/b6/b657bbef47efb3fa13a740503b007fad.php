@@ -39,12 +39,12 @@ class __TwigTemplate_ffb0c88b6ae76fad9c3696deea37ef7f extends Template
     {
         $macros = $this->macros;
         // line 1
-        yield "<div class=\"dropdown d-grid\">
-  <button type=\"button\" data-bs-toggle=\"dropdown\" class=\"btn btn-lg btn-inverse btn-block dropdown-toggle\"><i class=\"fa-solid fa-cart-shopping\"></i> ";
+        yield "<div class=\"dropdown\">
+  <button type=\"button\" data-bs-toggle=\"dropdown\" class=\"btn btn-lg btn-primary dropdown-toggle d-flex align-items-center gap-2 px-3\"><i class=\"fa-solid fa-cart-shopping\"></i> <span class=\"text-truncate\">";
         // line 2
         yield ($context["text_items"] ?? null);
-        yield "</button>
-  <ul class=\"dropdown-menu dropdown-menu-end p-2\">
+        yield "</span></button>
+  <ul class=\"dropdown-menu dropdown-menu-end p-2 shadow\" style=\"min-width: 22rem;\">
     ";
         // line 4
         if ((($context["products"] ?? null) || ($context["vouchers"] ?? null))) {
@@ -248,7 +248,7 @@ class __TwigTemplate_ffb0c88b6ae76fad9c3696deea37ef7f extends Template
     ";
         } else {
             // line 68
-            yield "      <li class=\"text-center p-4\">";
+            yield "      <li class=\"text-center p-4 text-muted\">";
             yield ($context["text_no_results"] ?? null);
             yield "</li>
     ";
@@ -286,9 +286,9 @@ class __TwigTemplate_ffb0c88b6ae76fad9c3696deea37ef7f extends Template
 
     public function getSourceContext(): Source
     {
-        return new Source("<div class=\"dropdown d-grid\">
-  <button type=\"button\" data-bs-toggle=\"dropdown\" class=\"btn btn-lg btn-inverse btn-block dropdown-toggle\"><i class=\"fa-solid fa-cart-shopping\"></i> {{ text_items }}</button>
-  <ul class=\"dropdown-menu dropdown-menu-end p-2\">
+        return new Source("<div class=\"dropdown\">
+  <button type=\"button\" data-bs-toggle=\"dropdown\" class=\"btn btn-lg btn-primary dropdown-toggle d-flex align-items-center gap-2 px-3\"><i class=\"fa-solid fa-cart-shopping\"></i> <span class=\"text-truncate\">{{ text_items }}</span></button>
+  <ul class=\"dropdown-menu dropdown-menu-end p-2 shadow\" style=\"min-width: 22rem;\">
     {% if products or vouchers %}
       <li>
         <table class=\"table table-striped mb-2\">
@@ -353,7 +353,7 @@ class __TwigTemplate_ffb0c88b6ae76fad9c3696deea37ef7f extends Template
         </div>
       </li>
     {% else %}
-      <li class=\"text-center p-4\">{{ text_no_results }}</li>
+      <li class=\"text-center p-4 text-muted\">{{ text_no_results }}</li>
     {% endif %}
   </ul>
 </div>

@@ -37,6 +37,7 @@ $_['text_stock']                          = 'Stock';
 $_['text_affiliate']                      = 'Affiliate';
 $_['text_return']                         = 'Return';
 $_['text_captcha']                        = 'Captcha';
+$_['tab_permalinks']                      = 'Permalinks';
 $_['text_comment']                        = 'Comment';
 $_['text_hour']                           = 'Hour(s)';
 $_['text_none']                           = 'None';

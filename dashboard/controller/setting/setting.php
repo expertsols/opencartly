@@ -36,6 +36,9 @@ class Setting extends \Opencart\System\Engine\Controller {
 		$data['save'] = $this->url->link('setting/setting.save', 'user_token=' . $this->session->data['user_token']);
 		$data['back'] = $this->url->link('setting/store', 'user_token=' . $this->session->data['user_token']);
 
+		// Permalinks tab URL for lazy loading
+		$data['url_permalinks'] = $this->url->link('setting/setting.permalinks', 'user_token=' . $this->session->data['user_token']);
+
 		// General
 		$data['config_description'] = (array)$this->config->get('config_description');
 
@@ -619,5 +622,45 @@ class Setting extends \Opencart\System\Engine\Controller {
 		} else {
 			$this->response->setOutput(HTTP_CATALOG . 'image/no_image.png');
 		}
+	}
+
+	/**
+	 * Permalinks Tab Content
+	 *
+	 * Returns the Permalinks tab content via AJAX
+	 *
+	 * @return void
+	 */
+	public function permalinks(): void {
+		$this->load->language('setting/setting');
+
+		// Get current settings
+		$data['config_base_domain'] = $this->config->get('config_base_domain');
+		$data['config_base_path'] = $this->config->get('config_base_path');
+		$data['config_url_structure'] = $this->config->get('config_url_structure') ?: 'plain';
+		$data['config_category_url_format'] = $this->config->get('config_category_url_format') ?: 'category';
+		$data['config_product_url_format'] = $this->config->get('config_product_url_format') ?: 'product';
+		$data['config_information_url_format'] = $this->config->get('config_information_url_format') ?: 'information';
+		$data['config_auto_redirect'] = (int)$this->config->get('config_auto_redirect');
+		$data['config_redirect_status'] = (string)($this->config->get('config_redirect_status') ?: '301');
+		$data['config_trailing_slash'] = (int)($this->config->get('config_trailing_slash') ?? 1);
+		$data['config_remove_url_prefixes'] = (int)$this->config->get('config_remove_url_prefixes');
+		$data['config_database_redirect_repair'] = (int)$this->config->get('config_database_redirect_repair');
+
+		// Helper for single-field UI: base URL without scheme
+		$data['config_base_url'] = rtrim(($data['config_base_domain'] ?? '') . ($data['config_base_path'] ?? ''), '/');
+
+		// Auto-detect base path/domain if empty
+		if (empty($data['config_base_path'])) {
+			$parsed_url = parse_url(HTTP_CATALOG);
+			$data['config_base_path'] = isset($parsed_url['path']) ? rtrim($parsed_url['path'], '/') : '';
+		}
+		if (empty($data['config_base_domain'])) {
+			$parsed_url = parse_url(HTTP_CATALOG);
+			$data['config_base_domain'] = isset($parsed_url['host']) ? $parsed_url['host'] : '';
+			$data['config_base_url'] = rtrim($data['config_base_domain'] . ($data['config_base_path'] ?? ''), '/');
+		}
+
+		$this->response->setOutput($this->load->view('setting/permalinks_tab', $data));
 	}
 }

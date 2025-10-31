@@ -4,16 +4,16 @@
 @import '../fonts/fontawesome/css/all.min.css';
 
 // Custom OpenCart variables
-$blue:       #1e91cf;
+$blue:       #229ac8;
 $indigo:     #6610f2;
 $purple:     #6f42c1;
 $pink:       #d63384;
-$red:        #e3503e;
+$red:        #da4f49;
 $orange:     #fd7e14;
-$yellow:     #f3a638;
-$green:      #4cb64c;
+$yellow:     #faa732;
+$green:      #198754;
 $teal:       #20c997;
-$cyan:       #54b7d3;
+$cyan:       #0dcaf0;
 $white:      #fff;
 $gray-100:   #f8f9fa;
 $gray-200:   #e9ecef;
@@ -284,7 +284,7 @@ legend {
 }
 
 .breadcrumb-item:last-child a {
-    color: #1e91cf;
+    color: #229ac8;
 }
 
 .breadcrumb-item {
@@ -422,7 +422,7 @@ legend {
 }
 
 #menu > li.active > a {
-    color: #0b91d2;
+    color: #229ac8;
 
     background-color: #171b21;
 }
@@ -456,7 +456,7 @@ legend {
 }
 
 #menu li li.active > a {
-    color: #0b91d2;
+    color: #229ac8;
     background-color: #242d37;
 }
 
@@ -616,7 +616,7 @@ label.required:before, label:has(+ input:required):before, label:has(+ select:re
     font-family: 'Font Awesome 6 Free';
     font-weight: 600;
     content: "\f059";
-    color: #1E91CF;
+    color: #229ac8;
     margin-left: 4px;
 }
 
@@ -685,7 +685,7 @@ label.required:before, label:has(+ input:required):before, label:has(+ select:re
 }
 
 .tile-primary {
-    background-color: #1b80c2;
+    background-color: #229ac8;
 }
 
 .tile-success {
@@ -788,7 +788,7 @@ label.required:before, label:has(+ input:required):before, label:has(+ select:re
 }
 
 #extension-list section:hover {
-    border: 1px solid #1b80c2;
+    border: 1px solid #229ac8;
 }
 
 #extension-list > .row {
@@ -885,7 +885,7 @@ label.required:before, label:has(+ input:required):before, label:has(+ select:re
 }
 
 #marketplace-extension-info .extension-review {
-    border-top: 5px solid #1b80c2;
+    border-top: 5px solid #229ac8;
     padding-top: 50px;
     margin-top: 50px;
     margin-bottom: 50px;

@@ -1,0 +1,104 @@
+<div class="row mb-3">
+  <label for="input-base-url" class="col-sm-2 col-form-label">Base URL</label>
+  <div class="col-sm-10">
+    <input type="text" value="{{ config_base_url }}" id="input-base-url" class="form-control" placeholder="localhost/www/opencartly"/>
+    <div class="form-text">Enter host and optional path (no scheme), e.g. <code>localhost/www/opencartly</code></div>
+  </div>
+</div>
+<fieldset>
+  <legend>URL Structure</legend>
+  <div class="row mb-3">
+    <label for="input-url-structure" class="col-sm-2 col-form-label">Mode</label>
+    <div class="col-sm-10">
+      <select name="config_url_structure" id="input-url-structure" class="form-select">
+        <option value="plain"{% if config_url_structure == 'plain' %} selected{% endif %}>Plain</option>
+        <option value="category"{% if config_url_structure == 'category' %} selected{% endif %}>Category in URL</option>
+        <option value="custom"{% if config_url_structure == 'custom' %} selected{% endif %}>Custom</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Remove URL Prefixes</label>
+    <div class="col-sm-10">
+      <x-switch name="config_remove_url_prefixes" value="1" checked="{{ config_remove_url_prefixes }}" input-id="input-remove-prefixes" input-class="form-switch form-switch-lg"></x-switch>
+      <div class="form-text">Removes all OpenCart URL prefixes like /catalog/, /information/, /product/, /category/ etc. for cleaner URLs.</div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Trailing Slash</label>
+    <div class="col-sm-10">
+      <x-switch name="config_trailing_slash" value="1" checked="{{ config_trailing_slash }}" input-id="input-trailing-slash" input-class="form-switch form-switch-lg"></x-switch>
+    </div>
+  </div>
+</fieldset>
+<script>
+(function(){
+  var baseInput = document.getElementById('input-base-url');
+  if (!baseInput) return;
+  var form = document.getElementById('form-setting');
+  if (!form) return;
+  var domainHidden = document.createElement('input');
+  domainHidden.type = 'hidden';
+  domainHidden.name = 'config_base_domain';
+  var pathHidden = document.createElement('input');
+  pathHidden.type = 'hidden';
+  pathHidden.name = 'config_base_path';
+  form.appendChild(domainHidden);
+  form.appendChild(pathHidden);
+
+  function normalise(val){
+    var v = (val || '').trim();
+    v = v.replace(/^https?:\/\//i, '');
+    v = v.replace(/\\+/g, '/');
+    return v;
+  }
+  function splitHostPath(val){
+    var v = normalise(val);
+    var idx = v.indexOf('/');
+    var host = idx === -1 ? v : v.slice(0, idx);
+    var path = idx === -1 ? '' : '/' + v.slice(idx).replace(/^\/+|\/+$/g, '');
+    if (path === '/') path = '';
+    return {host: host, path: path};
+  }
+  function updateHidden(){
+    var parts = splitHostPath(baseInput.value);
+    domainHidden.value = parts.host;
+    pathHidden.value = parts.path;
+  }
+  baseInput.addEventListener('input', updateHidden);
+  updateHidden();
+})();
+</script>
+<fieldset>
+  <legend>URL Formats</legend>
+  <div class="alert alert-info">
+    OpenCart uses SEO keywords to build URLs for categories, products, and information pages. There are no custom prefix selectors; enable SEO URLs in Server settings to use the default format.
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Redirects</legend>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Auto Redirect</label>
+    <div class="col-sm-10">
+      <x-switch name="config_auto_redirect" value="1" checked="{{ config_auto_redirect }}" input-id="input-auto-redirect" input-class="form-switch form-switch-lg"></x-switch>
+      <div class="form-text">Create redirects when SEO URLs change.</div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="input-redirect-status" class="col-sm-2 col-form-label">Redirect Type</label>
+    <div class="col-sm-10">
+      <select name="config_redirect_status" id="input-redirect-status" class="form-select">
+        <option value="301"{% if config_redirect_status == '301' %} selected{% endif %}>301 - Permanent</option>
+        <option value="302"{% if config_redirect_status == '302' %} selected{% endif %}>302 - Temporary</option>
+        <option value="307"{% if config_redirect_status == '307' %} selected{% endif %}>307 - Temporary (Preserve Method)</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Repair Redirects DB</label>
+    <div class="col-sm-10">
+      <x-switch name="config_database_redirect_repair" value="1" checked="{{ config_database_redirect_repair }}" input-id="input-redirect-repair" input-class="form-switch form-switch-lg"></x-switch>
+    </div>
+  </div>
+</fieldset>
+

@@ -77,8 +77,10 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 				$redirect = $this->model_catalog_redirect->getRedirectByOldUrl($current_path);
 				
 				if ($redirect) {
+					// config_url already includes base domain and path from permalink settings
 					$base_url = $this->config->get('config_url');
-					$redirect_url = $base_url . ltrim($redirect['new_url'], '/');
+					
+					$redirect_url = rtrim($base_url, '/') . '/' . ltrim($redirect['new_url'], '/');
 					$this->response->redirect($redirect_url, (int)$redirect['status_code']);
 					return;
 				}
@@ -114,11 +116,11 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 		$redirect = $this->model_catalog_redirect->getRedirectByOldUrl($current_path);
 
 		if ($redirect) {
-			// Get base URL
+			// config_url already includes base domain and path from permalink settings
 			$base_url = $this->config->get('config_url');
 
 			// Build redirect URL
-			$redirect_url = $base_url . ltrim($redirect['new_url'], '/');
+			$redirect_url = rtrim($base_url, '/') . '/' . ltrim($redirect['new_url'], '/');
 
 			// Perform redirect
 			$this->response->redirect($redirect_url, (int)$redirect['status_code']);
@@ -217,32 +219,42 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 
 		array_multisort($sort_order, SORT_ASC, $paths);
 
-		// Check if we should remove URL prefixes (e.g., /catalog/, /information/, etc.)
-		// This setting can be toggled in admin: Settings > Settings > Server tab
-		// Config key: config_remove_url_prefixes
+		// Check URL structure mode and prefix removal settings
+		$url_structure = $this->config->get('config_url_structure') ?: 'plain';
 		$remove_prefixes = $this->config->get('config_remove_url_prefixes');
 
-		foreach ($paths as $result) {
-			$keyword = $result['keyword'];
+        // Build route path from collected keywords
+        $route_parts = [];
+        foreach ($paths as $result) {
+            $keyword = $result['keyword'];
+            
+            // In Plain mode, remove language codes (e.g., "en-gb/", "en-gb", "fr-fr/", etc.)
+            if ($url_structure === 'plain') {
+                // Remove language code patterns like "en-gb/", "fr-fr/", etc. at the start
+                $keyword = preg_replace('#^([a-z]{2}-[a-z]{2})(/|$)#i', '', $keyword);
+                // Also handle if keyword starts with language code without slash
+                $keyword = ltrim($keyword, '/');
+            }
+            
+            // Remove URL prefixes if enabled
+            if ($remove_prefixes) {
+                // Remove ALL OpenCart URL prefixes: /catalog/, /information/, /product/, /category/, /account/, /checkout/, etc.
+                $keyword = preg_replace('#^/(catalog|information|product|category|account|checkout|affiliate|return|voucher|gift|manufacturer|special|sitemap|contact)/#', '/', '/' . $keyword);
+            }
+            
+            $route_parts[] = trim($keyword, '/');
+        }
 
-			// If clean URLs enabled, strip subdirectory prefixes from the keyword
-			if ($remove_prefixes) {
-				// Remove common OpenCart prefixes: /catalog/, /information/, /product/, /category/
-				$keyword = preg_replace('#^/(catalog|information|product|category)/#', '/', '/' . $keyword);
-				// Remove leading slash for URL building
-				$keyword = ltrim($keyword, '/');
-			}
+        $route_path = implode('/', array_filter($route_parts)); // Filter out empty parts
 
-			$url .= '/' . $keyword;
-		}
+        // Generate index.php?_route_= style URL (no .htaccess required)
+        $url = rtrim($url, '/') . '/index.php?_route_=' . ltrim($route_path, '/');
 
-		$url .= '/';
+        // Append remaining query params, if any
+        if ($query) {
+            $url .= '&' . str_replace(['%2F'], ['/'], http_build_query($query));
+        }
 
-		// Any remaining queries can be added to the end
-		if ($query) {
-			$url .= '?' . str_replace(['%2F'], ['/'], http_build_query($query));
-		}
-
-		return $url;
+        return $url;
 	}
 }

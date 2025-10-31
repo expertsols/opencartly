@@ -1,0 +1,39 @@
+<form id="form-tag" method="post" data-oc-toggle="ajax" data-oc-load="{{ action }}" data-oc-target="#list">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></th>
+          <th><a href="{{ sort_name }}"{% if sort == 'name' %} class="{{ order|lower }}"{% endif %}>{{ column_name }}</a></th>
+          <th><a href="{{ sort_slug }}"{% if sort == 'slug' %} class="{{ order|lower }}"{% endif %}>{{ column_slug }}</a></th>
+          <th class="text-center"><a href="{{ sort_count }}"{% if sort == 'count' %} class="{{ order|lower }}"{% endif %}>{{ column_count }}</a></th>
+          <th class="text-end">{{ column_date_added }}</th>
+          <th class="text-end">{{ column_action }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if tags %}
+          {% for tag in tags %}
+            <tr>
+              <td class="text-center"><input type="checkbox" name="selected[]" value="{{ tag.tag_id }}" class="form-check-input"/></td>
+              <td>{{ tag.name }}</td>
+              <td><code>{{ tag.slug }}</code></td>
+              <td class="text-center"><span class="badge bg-info">{{ tag.count }}</span></td>
+              <td class="text-end">{{ tag.date_added }}</td>
+              <td class="text-end text-nowrap"><a href="{{ tag.edit }}" data-bs-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td class="text-center" colspan="6">{{ text_no_results }}</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-start">{{ pagination }}</div>
+    <div class="col-sm-6 text-end">{{ results }}</div>
+  </div>
+</form>
+

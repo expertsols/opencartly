@@ -53,18 +53,29 @@ RewriteRule ^system/(.*) index.php?route=error/not_found [L]
 # Redirect old URLs like /catalog/product-name/ to /product-name/
 # Redirect old URLs like /information/about-us/ to /about-us/
 # Works for all language routes (e.g., /en-gb/catalog/..., /fr-fr/catalog/...)
+# Excludes admin/ and dashboard/ paths from redirect rules
 # ------------------------------------------------------------
+# Don't apply redirect rules to admin or dashboard URLs
+# Preserve base path in redirects (e.g., /www/opencartly/)
+RewriteCond %{REQUEST_URI} !admin [NC]
+RewriteCond %{REQUEST_URI} !dashboard [NC]
 RewriteCond %{REQUEST_URI} ^/(.*/)?catalog/(.+)$ [NC]
-RewriteRule ^(.*/)?catalog/(.+)$ /%1$2 [R=301,L]
+RewriteRule ^(.*/)?catalog/(.+)$ %1$2 [R=301,L]
 
+RewriteCond %{REQUEST_URI} !admin [NC]
+RewriteCond %{REQUEST_URI} !dashboard [NC]
 RewriteCond %{REQUEST_URI} ^/(.*/)?information/(.+)$ [NC]
-RewriteRule ^(.*/)?information/(.+)$ /%1$2 [R=301,L]
+RewriteRule ^(.*/)?information/(.+)$ %1$2 [R=301,L]
 
+RewriteCond %{REQUEST_URI} !admin [NC]
+RewriteCond %{REQUEST_URI} !dashboard [NC]
 RewriteCond %{REQUEST_URI} ^/(.*/)?product/(.+)$ [NC]
-RewriteRule ^(.*/)?product/(.+)$ /%1$2 [R=301,L]
+RewriteRule ^(.*/)?product/(.+)$ %1$2 [R=301,L]
 
+RewriteCond %{REQUEST_URI} !admin [NC]
+RewriteCond %{REQUEST_URI} !dashboard [NC]
 RewriteCond %{REQUEST_URI} ^/(.*/)?category/(.+)$ [NC]
-RewriteRule ^(.*/)?category/(.+)$ /%1$2 [R=301,L]
+RewriteRule ^(.*/)?category/(.+)$ %1$2 [R=301,L]
 
 # ------------------------------------------------------------
 # 🧱 Prevent rewrite recursion
@@ -75,9 +86,13 @@ RewriteRule .* - [L]
 # ------------------------------------------------------------
 # ✅ Main SEO URL rewrite
 # Enables clean URLs like /about-us or /laptops
+# Excludes admin/ and dashboard/ directories from rewrite
+# Works for both root and subfolder installations
 # ------------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !admin [NC]
+RewriteCond %{REQUEST_URI} !dashboard [NC]
 RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
 
 # ------------------------------------------------------------

@@ -48,6 +48,22 @@ class Setting extends \Opencart\System\Engine\Controller {
 			}
 		}
 
+		// Build base URL from Permalink settings if configured
+		$base_domain = $this->config->get('config_base_domain');
+		$base_path = $this->config->get('config_base_path');
+
+		if ($base_domain) {
+			// Determine scheme from request
+			$scheme = ($this->request->server['HTTPS'] ?? '') ? 'https://' : 'http://';
+
+			// Build base URL from permalink settings
+			$base_path = $base_path ? '/' . trim($base_path, '/') : '';
+			$custom_base_url = $scheme . $base_domain . $base_path . '/';
+
+			// Override config_url with permalink-based URL
+			$this->config->set('config_url', $custom_base_url);
+		}
+
 		// Url
 		$this->registry->set('url', new \Opencart\System\Library\Url($this->config->get('config_url')));
 

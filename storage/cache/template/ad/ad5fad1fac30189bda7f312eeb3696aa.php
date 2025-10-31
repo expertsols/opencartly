@@ -92,11 +92,26 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
         // line 18
         yield ($context["stylesheet"] ?? null);
         yield "\" type=\"text/css\" rel=\"stylesheet\"/>
-  <script type=\"text/javascript\" src=\"catalog/view/javascript/jquery/datetimepicker/moment.min.js\"></script>
-  <script type=\"text/javascript\" src=\"catalog/view/javascript/jquery/datetimepicker/moment-with-locales.min.js\"></script>
-  <script type=\"text/javascript\" src=\"catalog/view/javascript/jquery/datetimepicker/daterangepicker.js\"></script>
-  <link href=\"catalog/view/javascript/jquery/datetimepicker/daterangepicker.css\" rel=\"stylesheet\" type=\"text/css\"/>
-  <script src=\"catalog/view/javascript/common.js\" type=\"text/javascript\"></script>
+  <script type=\"text/javascript\" src=\"";
+        // line 19
+        yield ($context["base"] ?? null);
+        yield "static/javascript/jquery/datetimepicker/moment.min.js\"></script>
+  <script type=\"text/javascript\" src=\"";
+        // line 20
+        yield ($context["base"] ?? null);
+        yield "static/javascript/jquery/datetimepicker/moment-with-locales.min.js\"></script>
+  <script type=\"text/javascript\" src=\"";
+        // line 21
+        yield ($context["base"] ?? null);
+        yield "static/javascript/jquery/datetimepicker/daterangepicker.js\"></script>
+  <link href=\"";
+        // line 22
+        yield ($context["base"] ?? null);
+        yield "static/javascript/jquery/datetimepicker/daterangepicker.css\" rel=\"stylesheet\" type=\"text/css\"/>
+  <script src=\"";
+        // line 23
+        yield ($context["base"] ?? null);
+        yield "static/javascript/common.js\" type=\"text/javascript\"></script>
   ";
         // line 24
         $context['_parent'] = $context;
@@ -346,7 +361,7 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  322 => 97,  314 => 92,  310 => 91,  306 => 89,  298 => 87,  286 => 85,  284 => 84,  270 => 72,  263 => 70,  257 => 69,  251 => 68,  245 => 67,  238 => 66,  231 => 64,  224 => 63,  222 => 62,  215 => 60,  205 => 57,  197 => 56,  191 => 53,  186 => 51,  177 => 45,  173 => 44,  163 => 36,  154 => 34,  149 => 33,  138 => 31,  133 => 30,  124 => 28,  119 => 27,  106 => 25,  102 => 24,  93 => 18,  89 => 17,  85 => 16,  80 => 15,  74 => 13,  71 => 12,  65 => 10,  63 => 9,  59 => 8,  55 => 7,  45 => 2,  42 => 1,);
+        return array (  337 => 97,  329 => 92,  325 => 91,  321 => 89,  313 => 87,  301 => 85,  299 => 84,  285 => 72,  278 => 70,  272 => 69,  266 => 68,  260 => 67,  253 => 66,  246 => 64,  239 => 63,  237 => 62,  230 => 60,  220 => 57,  212 => 56,  206 => 53,  201 => 51,  192 => 45,  188 => 44,  178 => 36,  169 => 34,  164 => 33,  153 => 31,  148 => 30,  139 => 28,  134 => 27,  121 => 25,  117 => 24,  113 => 23,  109 => 22,  105 => 21,  101 => 20,  97 => 19,  93 => 18,  89 => 17,  85 => 16,  80 => 15,  74 => 13,  71 => 12,  65 => 10,  63 => 9,  59 => 8,  55 => 7,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -369,11 +384,11 @@ class __TwigTemplate_7c8d39e7c1c0f33109d247a71b99b99a extends Template
   <link href=\"{{ bootstrap }}\" type=\"text/css\" rel=\"stylesheet\" media=\"screen\"/>
   <link href=\"{{ icons }}\" type=\"text/css\" rel=\"stylesheet\"/>
   <link href=\"{{ stylesheet }}\" type=\"text/css\" rel=\"stylesheet\"/>
-  <script type=\"text/javascript\" src=\"catalog/view/javascript/jquery/datetimepicker/moment.min.js\"></script>
-  <script type=\"text/javascript\" src=\"catalog/view/javascript/jquery/datetimepicker/moment-with-locales.min.js\"></script>
-  <script type=\"text/javascript\" src=\"catalog/view/javascript/jquery/datetimepicker/daterangepicker.js\"></script>
-  <link href=\"catalog/view/javascript/jquery/datetimepicker/daterangepicker.css\" rel=\"stylesheet\" type=\"text/css\"/>
-  <script src=\"catalog/view/javascript/common.js\" type=\"text/javascript\"></script>
+  <script type=\"text/javascript\" src=\"{{ base }}static/javascript/jquery/datetimepicker/moment.min.js\"></script>
+  <script type=\"text/javascript\" src=\"{{ base }}static/javascript/jquery/datetimepicker/moment-with-locales.min.js\"></script>
+  <script type=\"text/javascript\" src=\"{{ base }}static/javascript/jquery/datetimepicker/daterangepicker.js\"></script>
+  <link href=\"{{ base }}static/javascript/jquery/datetimepicker/daterangepicker.css\" rel=\"stylesheet\" type=\"text/css\"/>
+  <script src=\"{{ base }}static/javascript/common.js\" type=\"text/javascript\"></script>
   {% for style in styles %}
     <link href=\"{{ style.href }}\" type=\"text/css\" rel=\"{{ style.rel }}\" media=\"{{ style.media }}\"/>
   {% endfor %}

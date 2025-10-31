@@ -9,3 +9,7 @@
 2025-10-26 22:25:03 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 49
 2025-10-26 22:25:17 - Undefined array key "column" in D:\xampp\htdocs\www\opencartly\catalog\controller\common\menu.php on line 49
 2025-10-27 11:19:05 - syntax error, unexpected token "}" in D:\xampp\htdocs\www\opencartly\catalog\controller\startup\seo_url.php on line 188
+2025-10-31 15:55:36 - Error: Table 'opencartly.oc_redirects' doesn't exist<br/>Error No: 1146<br/>SELECT * FROM `oc_redirects` WHERE `old_url` = '/en-gb/catalog/desktop-pcs' LIMIT 1 in D:\xampp\htdocs\www\opencartly\system\library\db\mysqli.php on line 180
+2025-10-31 15:55:46 - Error: Table 'opencartly.oc_redirects' doesn't exist<br/>Error No: 1146<br/>SELECT * FROM `oc_redirects` WHERE `old_url` = '/en-gb/catalog/desktop-pcs' LIMIT 1 in D:\xampp\htdocs\www\opencartly\system\library\db\mysqli.php on line 180
+2025-10-31 16:01:50 - Error: Table 'opencartly.oc_redirects' doesn't exist<br/>Error No: 1146<br/>SELECT * FROM `oc_redirects` WHERE `old_url` = '/en-gb/catalog/desktop-pcs' LIMIT 1 in D:\xampp\htdocs\www\opencartly\system\library\db\mysqli.php on line 180
+2025-10-31 16:01:58 - Error: Table 'opencartly.oc_redirects' doesn't exist<br/>Error No: 1146<br/>SELECT * FROM `oc_redirects` WHERE `old_url` = '/en-gb/catalog/desktop-pcs' LIMIT 1 in D:\xampp\htdocs\www\opencartly\system\library\db\mysqli.php on line 180
